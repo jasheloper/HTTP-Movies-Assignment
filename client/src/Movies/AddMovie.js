@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import axios from "axios"
+import axios from "axios";
 
-const AddMovie = (props) => {
-    const newObj = {
-        id: "",
-        title: "",
-        director: "",
-        metascore: "",
-        stars: []
-      }
+const AddMovie = props => {
+  const newObj = {
+    id: "",
+    title: "",
+    director: "",
+    metascore: "",
+    stars: []
+  };
   const [newFilm, setNewFilm] = useState(newObj);
 
   const [previewState, setPreviewState] = useState(false);
@@ -19,7 +19,11 @@ const AddMovie = (props) => {
 
   const handlePreview = e => {
     e.preventDefault();
-    setNewFilm({ ...newFilm, stars: newFilm.stars.split(", "), id: Date.now() });
+    setNewFilm({
+      ...newFilm,
+      stars: newFilm.stars.split(", "),
+      id: Date.now()
+    });
     setPreviewState(true);
   };
 
@@ -90,14 +94,17 @@ const AddMovie = (props) => {
           {previewState ? (
             newFilm.stars
           ) : (
-            <input
-              type="text"
-              name="stars"
-              value={newFilm.stars}
-              placeholder="Star, Star, Star"
-              onChange={handleChange}
-            />
-          )}<span>* Please separate stars by a comma and space *</span>
+            <>
+              <input
+                type="text"
+                name="stars"
+                value={newFilm.stars}
+                placeholder="Star, Star, Star"
+                onChange={handleChange}
+              />
+              <span>* Please separate stars by a comma and space *</span>
+            </>
+          )}
         </p>
         <button type="submit">
           {previewState ? "Commit Changes" : "Preview Changes"}

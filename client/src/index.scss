@@ -225,7 +225,20 @@ $tertiary: #0cbaba;
       }
     }
   }
-  .updateMovie {
+  .updateMovie, .addMovie {
+    header{
+      margin: 20px 0;
+      padding: 20px;
+      background: rgb(240, 240, 240);
+      box-shadow: 2px 2px 5px #666;
+      h1{
+        font-size: 2rem;
+      }
+      p{
+        margin: 10px 0;
+        font-size: 1rem;
+      }
+    }
     min-width: 600px;
     form {
       width: 100%;
@@ -246,6 +259,11 @@ $tertiary: #0cbaba;
         width: 100%;
         margin: 10px;
         font-size: 1rem;
+        span{
+          color: red;
+          font-size: 1.2rem;
+          font-weight: bold;
+        }
       }
       input {
         width: 100%;
